@@ -1,0 +1,291 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.xujin.cloud</groupId>
+  <artifactId>cloud-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <!-- 分模块管理 -->
+  <!-- 导入下面的模块，把模块聚合到一起统一管理 -->
+  <modules>
+   <module>../cloud-web</module>
+    <module>../cloud-core</module> 
+    <module>../cloud-user</module> 
+     <module>../cloud-hibernate</module>
+  </modules>
+  <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <spring.version>4.1.6.RELEASE</spring.version>
+      <hibernate.version>4.3.8.Final</hibernate.version>
+      <hibernate-validator.version>5.1.3.Final</hibernate-validator.version>
+      <junit.version>4.8.2</junit.version>
+      <mysql.version>5.1.24</mysql.version>
+      <easymock.version>3.1</easymock.version>
+      <dbunit.version>2.4.9</dbunit.version>
+      <spring-test-dbunit.version>1.0.0</spring-test-dbunit.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencyManagement>
+  <dependencies>
+        <!-- 模块 -->
+		 <dependency>
+	      <groupId>org.xujin.cloud</groupId>
+           <artifactId>cloud-hibernate</artifactId>
+		  <version>${project.version}</version>
+	    </dependency>
+		 <dependency>
+	      <groupId>org.xujin.cloud</groupId>
+           <artifactId>cloud-core</artifactId>
+		  <version>${project.version}</version>
+	    </dependency>
+		 <dependency>
+	      <groupId>org.xujin.cloud</groupId>
+           <artifactId>cloud-user</artifactId>
+		  <version>${project.version}</version>
+	    </dependency>
+		<!-- <dependency>
+	      <groupId>org.xujin.cloud</groupId>
+           <artifactId>cloud-core</artifactId>
+		  <version>${project.version}</version>
+	    </dependency> -->
+         <!-- 		<dependency>
+	      <groupId>org.xujin.basic</groupId>
+           <artifactId>org.xujin.base.hibernate</artifactId>
+		  <version>${project.version}</version>
+	    </dependency> -->
+	  
+		<!-- <dependency>
+	      <groupId>org.xujin.cloud</groupId>
+	      <artifactId>cloud-core</artifactId>
+		  <version>${project.version}</version>
+	    </dependency> -->
+	    
+      <!-- 公用的一些jar放在parent中 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+		  <groupId>org.easymock</groupId>
+		  <artifactId>easymock</artifactId>
+		  <version>${easymock.version}</version>
+		  <scope>test</scope>
+		</dependency>
+		<dependency>
+		  <groupId>commons-lang</groupId>
+		  <artifactId>commons-lang</artifactId>
+		  <version>2.6</version>
+		</dependency>
+	    
+	    <dependency>
+			<groupId>org.wicketstuff</groupId>
+			<artifactId>jsr303</artifactId>
+			<version>1.5-RC5.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.kenai.nbpwr</groupId>
+			<artifactId>javax-inject</artifactId>
+			<version>1.0-201002241208</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>${dbunit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.github.springtestdbunit</groupId>
+			<artifactId>spring-test-dbunit</artifactId>
+  			<version>${spring-test-dbunit.version}</version>
+  			<scope>test</scope>
+		</dependency>
+		
+		<!-- <dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<type>jar</type>
+			<version>1.6.1</version>
+			<scope>compile</scope>
+		</dependency> -->
+		
+		 
+		 <!-- hibernate begin -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- 
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency> -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
+		</dependency>
+		<!-- hibernate end -->
+		
+		<!-- spring-test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		 <!-- spring-context -->
+        <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- spring-core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- spring-beans -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- spring-aop -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- spring-orm-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+		
+		<!-- Spring MVC需要的jar spring-web-->
+         <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- Spring MVC需要的jar spring-webmvc-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		 <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- 文件上传需要的jar -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3</version>
+		</dependency>
+		
+		<!-- 文件上传需要的jar -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		
+		 
+		<dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>servlet-api</artifactId>
+		  <version>2.5</version>
+		  <scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		  <groupId>jstl</groupId>
+		  <artifactId>jstl</artifactId>
+		  <version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>jsptags</groupId>
+		  <artifactId>pager-taglib</artifactId>
+		  <version>2.0</version>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
+  <build>
+    <!-- 插件管理也是用于继承 -->
+    <pluginManagement>
+       <plugins>
+			<!-- 编译插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<!-- 发布源码插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<configuration>
+				   <!--使用utf-8编码处理资源文件  -->
+				  <encoding>utf-8</encoding>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+    </pluginManagement>
+ </build>
+</project>
